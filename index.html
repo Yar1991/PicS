@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./icons/camera.png" type="image/png" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <title>PicS</title>
+  </head>
+  <body>
+    <header id="header" class="main-header">
+      <h1 class="logo">
+        <a class="logo-link" href="./index.html" title="logo">PicS</a>
+      </h1>
+      <form action="#" class="search-form">
+        <input type="search" name="search" id="search" title="search field" />
+        <input type="submit" value="Search" />
+      </form>
+    </header>
+
+    <main class="main-content">
+      <section class="gallery"></section>
+      <div class="btn-box">
+        <button class="more" title="load more">More</button>
+      </div>
+    </main>
+    <a href="#header" class="scroll-up"
+      ><img src="./icons/up.svg" alt="up"
+    /></a>
+
+    <footer class="main-footer">
+      <p class="footer-text">
+        Photos provided by
+        <a href="https://www.pexels.com/" target="_blank" title="Pexels"
+          >Pexels</a
+        >
+        .Y. <span class="date"></span>
+      </p>
+    </footer>
+
+    <script src="app.js" type="module"></script>
+  </body>
+</html>

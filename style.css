@@ -1,0 +1,325 @@
+:root {
+  --main-color: rgb(59, 14, 77);
+  --main-font: "Poppins", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--main-font);
+  min-height: 100vh;
+  color: var(--main-color);
+}
+
+body::-webkit-scrollbar {
+  width: 0.7rem;
+}
+
+body::-webkit-scrollbar-track {
+  background: #fff;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--main-color);
+}
+
+a,
+button,
+input[type="submit"],
+input[type="search"],
+select {
+  outline-offset: 0.2rem;
+  outline-color: rgba(0, 0, 0, 0.1);
+  outline-width: 1px;
+}
+/* header */
+
+.main-header {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 5rem;
+  margin-bottom: 7rem;
+}
+
+.main-header .logo .logo-link {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--main-color);
+  letter-spacing: 0.2px;
+  font-size: 2.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.main-header .search-form {
+  display: flex;
+  max-width: 100%;
+}
+
+.main-header .search-form input[type="search"] {
+  font-size: 1rem;
+  font-family: var(--main-font);
+  padding: 0.2rem;
+  width: 25rem;
+  border: 1px solid var(--main-color);
+}
+
+.main-header .search-form input[type="submit"] {
+  font-size: 1rem;
+  padding: 0.2rem 1rem;
+  color: #fff;
+  background: var(--main-color);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background 1s cubic-bezier(0.19, 1, 0.22, 1),
+    color 1s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.main-header .search-form input[type="submit"]:hover {
+  color: var(--main-color);
+  background: none;
+  border: 1px solid var(--main-color);
+}
+
+/* section */
+
+.main-content {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 5rem;
+}
+
+.main-content .gallery {
+  position: relative;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+  place-items: center;
+  margin-bottom: 3rem;
+  box-shadow: 0 0 20px rgba(31, 7, 41, 0.4), 0 5px 15px rgba(31, 7, 41, 0.3);
+}
+
+.main-content .gallery .box {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 25rem;
+  transition: transform 1.5s cubic-bezier(0.19, 1, 0.22, 1),
+    opacity 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+@media screen and (max-width: 500px) {
+  .main-content .gallery {
+    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  }
+  .main-content .gallery .box {
+    height: 20rem;
+  }
+}
+
+.main-content .gallery .box:hover .hide-box {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: all;
+  transform: translateY(0%);
+}
+
+.main-content .gallery .box:hover .gallery-img {
+  transform: scale(1.2);
+}
+
+.main-content .gallery .box .gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  will-change: transform;
+  transition: transform 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.main-content .gallery .box .hide-box {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  color: #fff;
+  background: rgba(59, 14, 77, 0.8);
+  will-change: transform;
+  transition: transform 1.5s cubic-bezier(0.19, 1, 0.22, 1),
+    opacity 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+  visibility: hidden;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(-100%);
+}
+
+.main-content .gallery .box .hide-box .author {
+  font-size: 1.3rem;
+}
+
+.main-content .gallery .box .hide-box .select-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.main-content .gallery .box .hide-box .select-wrapper #download-select {
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: none;
+  font-size: 1.2rem;
+  font-family: inherit;
+  padding: 0.2rem 2rem 0.2rem 1rem;
+  cursor: pointer;
+  background: none;
+  color: #fff;
+}
+
+.main-content .gallery .box .hide-box .select-wrapper #download-select option {
+  color: var(--main-color);
+}
+
+.main-content .gallery .box .hide-box .select-wrapper .select-arrow {
+  filter: invert(100%);
+  width: 1rem;
+  height: 1rem;
+  pointer-events: none;
+  transform: translateX(-1.5rem);
+}
+
+.main-content .gallery .box .hide-box .download-link {
+  border: none;
+  background: none;
+  display: inline-block;
+}
+
+.main-content .gallery .box .hide-box .download-link img {
+  width: 3rem;
+  height: 3rem;
+  filter: invert(100%);
+  transition: opacity 1s cubic-bezier(0.19, 1, 0.22, 1),
+    transform 1s cubic-bezier(0.19, 1, 0.22, 1);
+  will-change: transform;
+}
+
+.main-content .gallery .box .hide-box .download-link img:hover {
+  opacity: 0.9;
+  transform: translateY(-0.5rem);
+}
+
+.main-content .btn-box .more {
+  font-size: 1rem;
+  padding: 0.7rem 1.7rem;
+  color: #fff;
+  background: var(--main-color);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background 1s cubic-bezier(0.19, 1, 0.22, 1),
+    color 1s cubic-bezier(0.19, 1, 0.22, 1);
+  visibility: hidden;
+  opacity: 0;
+}
+
+.main-content .btn-box .more.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.btn-box .more:hover {
+  color: var(--main-color);
+  background: none;
+  border: 1px solid var(--main-color);
+}
+
+/* footer */
+
+.main-footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background: var(--main-color);
+  color: #fff;
+  padding: 1rem 1rem;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 1s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.main-footer.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.main-footer .footer-text a {
+  color: #fff;
+  font-size: 1.1rem;
+}
+
+/* scroll-up arrow */
+
+.scroll-up {
+  display: inline-block;
+  position: fixed;
+  bottom: 4rem;
+  right: 1.6rem;
+}
+
+@media screen and (max-width: 800px) {
+  .scroll-up {
+    right: 0.5rem;
+  }
+}
+
+.scroll-up img {
+  width: 2.5rem;
+  height: 2.5rem;
+  filter: invert(11%) sepia(39%) saturate(2962%) hue-rotate(261deg)
+    brightness(98%) contrast(108%);
+  will-change: transform;
+  transition: transform 1s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.scroll-up img:hover {
+  transform: translateY(-0.5rem);
+}
+
+/* loading cirlce */
+
+.loading {
+  position: absolute;
+  background: none;
+  width: 10rem;
+  height: 10rem;
+  margin-top: 8rem;
+  border-radius: 50%;
+  border-top: 0.5rem solid transparent;
+  border-right: 0.5rem solid rgb(88, 17, 116);
+  border-bottom: 0.5rem solid transparent;
+  border-left: 0.5rem solid transparent;
+  will-change: transform;
+  animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
