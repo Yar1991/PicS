@@ -21,8 +21,7 @@ let searchValue;
 
 const gallery = document.querySelector(".gallery");
 const hiddenFooter = document.querySelector(".main-footer");
-let loadingCircle = document.createElement("div");
-gallery.appendChild(loadingCircle);
+const loadingCircle = document.querySelector(".circle");
 let nextPage;
 
 // *** events *** //
@@ -45,6 +44,7 @@ searchForm.addEventListener("submit", (e) => {
   e.preventDefault();
   hiddenFooter.classList.remove("active");
   moreBtn.classList.remove("active");
+  loadingCircle.classList.add("loading");
   searchValue = inputField.value;
   if (window.innerWidth < 1350) {
     searchUrl = `https://api.pexels.com/v1/search?query=${searchValue}&per_page=10`;
@@ -57,6 +57,7 @@ searchForm.addEventListener("submit", (e) => {
     gallery.innerHTML = "";
     inputField.value = "";
   }
+  inputField.blur();
 });
 
 moreBtn.addEventListener("click", () => {
@@ -68,7 +69,6 @@ moreBtn.addEventListener("click", () => {
 const renderHTML = (data) => {
   if (loadingCircle.classList.contains("loading")) {
     loadingCircle.classList.remove("loading");
-    gallery.removeChild(loadingCircle);
   }
   for (let photo of data.photos) {
     let itemBox = document.createElement("div");

@@ -1,5 +1,5 @@
 :root {
-  --main-color: rgb(59, 14, 77);
+  --main-color: rgb(46, 11, 59);
   --main-font: "Poppins", sans-serif;
 }
 
@@ -17,6 +17,7 @@ body {
   font-family: var(--main-font);
   min-height: 100vh;
   color: var(--main-color);
+  overflow-x: hidden;
 }
 
 body::-webkit-scrollbar {
@@ -63,18 +64,25 @@ select {
 
 .main-header .search-form {
   display: flex;
-  max-width: 100%;
+  width: 100%;
+  justify-content: center;
 }
 
 .main-header .search-form input[type="search"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
   font-size: 1rem;
   font-family: var(--main-font);
   padding: 0.2rem;
-  width: 25rem;
+  width: 40%;
   border: 1px solid var(--main-color);
 }
 
 .main-header .search-form input[type="submit"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
   font-size: 1rem;
   padding: 0.2rem 1rem;
   color: #fff;
@@ -91,9 +99,25 @@ select {
   border: 1px solid var(--main-color);
 }
 
+@media screen and (max-width: 500px) {
+  .main-header .search-form {
+    flex-direction: column;
+  }
+  .main-header .search-form input[type="search"] {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  .main-header .search-form input[type="submit"] {
+    width: 30%;
+    align-self: center;
+    padding: 0.7rem 0.5rem;
+  }
+}
+
 /* section */
 
 .main-content {
+  position: relative;
   width: 90%;
   margin: auto;
   display: flex;
@@ -103,7 +127,6 @@ select {
 }
 
 .main-content .gallery {
-  position: relative;
   width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
@@ -160,7 +183,7 @@ select {
   align-items: center;
   justify-content: space-evenly;
   color: #fff;
-  background: rgba(59, 14, 77, 0.8);
+  background: rgba(48, 11, 63, 0.8);
   will-change: transform;
   transition: transform 1.5s cubic-bezier(0.19, 1, 0.22, 1),
     opacity 1.5s cubic-bezier(0.19, 1, 0.22, 1);
@@ -291,7 +314,7 @@ select {
 .scroll-up img {
   width: 2.5rem;
   height: 2.5rem;
-  filter: invert(11%) sepia(39%) saturate(2962%) hue-rotate(261deg)
+  filter: invert(7%) sepia(39%) saturate(2962%) hue-rotate(261deg)
     brightness(98%) contrast(108%);
   will-change: transform;
   transition: transform 1s cubic-bezier(0.19, 1, 0.22, 1);
@@ -308,7 +331,6 @@ select {
   background: none;
   width: 10rem;
   height: 10rem;
-  margin-top: 8rem;
   border-radius: 50%;
   border-top: 0.5rem solid transparent;
   border-right: 0.5rem solid rgb(88, 17, 116);
