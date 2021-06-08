@@ -87,7 +87,7 @@ const renderHTML = (data) => {
         </select>
         <img src="./icons/select.svg" alt="select" class="select-arrow" />
       </div>
-      <a href="#" target="_blank" class="download-link"
+      <a href="#" target="_blank" rel="noopener" class="download-link"
         ><img src="./icons/download.svg" alt="download"
       /></a>
     </div>`;
